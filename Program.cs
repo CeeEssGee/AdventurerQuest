@@ -10,8 +10,16 @@ namespace Quest
         static void Main(string[] args)
         {
 
-            // phase 2 - prompt the user for their name
+            NewGame();
+
+        }
+
+        // wrapped my game code in a method called NewGame and moved it outside of Main, added a question at the end, added a Console.ReadLine and an if statement
+        static void NewGame()
+        {
+            // prompt the user to enter their name
             Console.WriteLine("What is your name?");
+            // stores the user's name in a variable
             string playerName = Console.ReadLine();
             // Create a few challenges for our Adventurer's quest
             // The "Challenge" Constructor takes three arguments
@@ -47,7 +55,7 @@ namespace Quest
             int maxAwesomeness = 100;
 
             // Make a new "Adventurer" object using the "Adventurer" class
-            // phase 2 pass the user's name into the Adventurer constructor when creating the Adventurer object
+            // the user's name variable into the Adventurer constructor when creating the Adventurer object
             Adventurer theAdventurer = new Adventurer(playerName);
 
             // A list of challenges for the Adventurer to complete
@@ -81,6 +89,18 @@ namespace Quest
             {
                 Console.WriteLine("I guess you did...ok? ...sorta. Still, you should get out of my sight.");
             }
+            // at the end of the game, the user is asked if they want to play again
+            Console.WriteLine("Do you want to play again? (y/n)");
+            // stores the response in a variable
+            string playAgain = Console.ReadLine();
+            // if the variable is y or Y, the game reloads, if it is anything else, the game stops
+            if (playAgain == "y" || playAgain == "Y")
+            {
+                NewGame();
+            }
         }
+
+
     }
+
 }
