@@ -36,7 +36,8 @@ namespace Quest
             Hat ExtremelyShinyHat = new Hat();
             ExtremelyShinyHat.ShininessLevel = 15;
 
-
+            // In Program.cs create an instance of the Prize.
+            Prize RubberDuck = new Prize("A Rubber Duck!");
 
             // Create a few challenges for our Adventurer's quest
             // The "Challenge" Constructor takes three arguments
@@ -109,6 +110,8 @@ namespace Quest
             {
                 Console.WriteLine("I guess you did...ok? ...sorta. Still, you should get out of my sight.");
             }
+            // At the end of the quest (before you ask if the user wants to repeat the quest) call the ShowPrize method.
+            RubberDuck.ShowPrize(theAdventurer);
             // at the end of the game, the user is asked if they want to play again
             Console.WriteLine("Do you want to play again? (y/n)");
             // stores the response in a variable
