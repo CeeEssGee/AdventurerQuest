@@ -55,13 +55,50 @@ namespace Quest
 
             Challenge favoriteBeatle = new Challenge(
                 @"Who's your favorite Beatle?
-    1) John
-    2) Paul
-    3) George
-    4) Ringo
-",
+                1) John
+                2) Paul
+                3) George
+                4) Ringo
+                ",
                 4, 20
             );
+            // Let's make the challenges a little more interesting. Add 2 to 5 more challenges to the program
+            Challenge favoriteColor = new Challenge(
+                @"What's Courtney's favorite color?
+                1) Red
+                2) Green
+                3) Blue
+                4) Purple
+                ",
+                4, 25
+            );
+            Challenge phobia = new Challenge(
+                @"What is cynophobia?
+                1) Fear of sin
+                2) Fear of blue
+                3) Fear of dogs
+                4) Fear of clothes
+                ",
+                3, 25
+            );
+            Challenge languages = new Challenge("How many languages are written from right to left?", 12, 50);
+            Challenge factOrCrap1 = new Challenge(
+                @"Twins can have different fathers.
+                1) Fact
+                2) Crap
+                ",
+                1, 10
+            );
+            Challenge factOrCrap2 = new Challenge(
+                @"A cup of tea has more caffeine than a cup of coffee.
+                1) Fact
+                2) Crap
+                ",
+                2, 10
+            );
+
+
+
 
             // "Awesomeness" is like our Adventurer's current "score"
             // A higher Awesomeness is better
@@ -87,14 +124,34 @@ namespace Quest
                 theAnswer,
                 whatSecond,
                 guessRandom,
-                favoriteBeatle
+                favoriteBeatle,
+                favoriteColor,
+                phobia,
+                languages,
+                factOrCrap1,
+                factOrCrap2
             };
 
             // Loop through all the challenges and subject the Adventurer to them
-            foreach (Challenge challenge in challenges)
+            // foreach (Challenge challenge in challenges)
+            // randomly select 5 challenges for our adventurer to face.
+            List<int> indices = new List<int>();
+            Random random = new Random();
+            int length = challenges.Count - 1;
+            while (indices.Count < 5)
             {
-                challenge.RunChallenge(theAdventurer);
+                int candidate = random.Next(0, length);
+                if (!indices.Contains(candidate))
+                {
+                    indices.Add(candidate);
+                }
             }
+
+            foreach (int index in indices)
+            {
+                challenges[index].RunChallenge(theAdventurer);
+            }
+
 
             // This code examines how Awesome the Adventurer is after completing the challenges
             // And praises or humiliates them accordingly
