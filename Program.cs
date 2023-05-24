@@ -32,6 +32,12 @@ namespace Quest
                 Length = 60
             };
 
+            // Update the Program.cs file to create a Hat and pass it to the Adventurer's constructor.
+            Hat ExtremelyShinyHat = new Hat();
+            ExtremelyShinyHat.ShininessLevel = 15;
+
+
+
             // Create a few challenges for our Adventurer's quest
             // The "Challenge" Constructor takes three arguments
             //   the text of the challenge
@@ -67,7 +73,8 @@ namespace Quest
 
             // Make a new "Adventurer" object using the "Adventurer" class
             // the user's name variable into the Adventurer constructor when creating the Adventurer object
-            Adventurer theAdventurer = new Adventurer(playerName, GreenRobe);
+            // Update the Program.cs file to create a Hat and pass it to the Adventurer's constructor.
+            Adventurer theAdventurer = new Adventurer(playerName, GreenRobe, ExtremelyShinyHat);
 
             // Before the adventurer starts their challenge, call the GetDescription method and print the results to the console.
             theAdventurer.GetDescription();

@@ -15,14 +15,20 @@ namespace Quest
         // Add a new immutable property to the Adventurer class called ColorfulRobe. The type of this property should be Robe.
         public Robe ColorfulRobe { get; }
 
+        // Add a Hat property and constructor parameter to the Adventurer class.
+        public Hat ShinyHat { get; }
+
         // A constructor to make a new Adventurer object with a given name
-        public Adventurer(string name, Robe colorfulRobe)
+        public Adventurer(string name, Robe colorfulRobe, Hat shinyHat)
         {
             Name = name;
             Awesomeness = 50;
             // Add a new constructor parameter to the Adventurer class to accept a Robe and to set the ColorfulRobe property.
             // Pass the new Robe into the constructor of the Adventurer.
             ColorfulRobe = colorfulRobe;
+
+            // Add a Hat property and constructor parameter to the Adventurer class.
+            ShinyHat = shinyHat;
         }
 
         // This method returns a string that describes the Adventurer's status
@@ -52,6 +58,7 @@ namespace Quest
         }
 
         // Add a new method to the Adventurer class called GetDescription. This method should return a string that contains the adventurer's name and a description of their robe. Defined in Adventurer, so it knows it's defined on an Adventurer and is assumed that "this" is the adventurer (or we could pass a parameter "Adventurer theAdventurer" and replace this with theAdventurer - etc.)
+        // Update the Adventurer's GetDescription method to include the description of the hat.
         public void GetDescription()
         {
             string colorList = "";
@@ -59,7 +66,7 @@ namespace Quest
             {
                 colorList += color + " ";
             }
-            System.Console.WriteLine($"Adventurer, {this.Name}, is wearing an amazing {colorList}robe that is {this.ColorfulRobe.Length} inches long.");
+            System.Console.WriteLine($"Adventurer, {this.Name}, is wearing an amazing {colorList}robe that is {this.ColorfulRobe.Length} inches long and a beautiful {this.ShinyHat.ShininessDescription} hat.");
         }
     }
 }
