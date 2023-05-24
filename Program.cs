@@ -21,6 +21,17 @@ namespace Quest
             Console.WriteLine("What is your name?");
             // stores the user's name in a variable
             string playerName = Console.ReadLine();
+            // In Program.cs create a new instance of the Robe class and set its properties.
+            Robe GreenRobe = new Robe()
+            {
+                Colors = new List<string>
+                {
+                    "green",
+                    "purple"
+                },
+                Length = 60
+            };
+
             // Create a few challenges for our Adventurer's quest
             // The "Challenge" Constructor takes three arguments
             //   the text of the challenge
@@ -56,8 +67,10 @@ namespace Quest
 
             // Make a new "Adventurer" object using the "Adventurer" class
             // the user's name variable into the Adventurer constructor when creating the Adventurer object
-            Adventurer theAdventurer = new Adventurer(playerName);
+            Adventurer theAdventurer = new Adventurer(playerName, GreenRobe);
 
+            // Before the adventurer starts their challenge, call the GetDescription method and print the results to the console.
+            theAdventurer.GetDescription();
             // A list of challenges for the Adventurer to complete
             // Note we can use the List class here because have the line "using System.Collections.Generic;" at the top of the file.
             List<Challenge> challenges = new List<Challenge>()
